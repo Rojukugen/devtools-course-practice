@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 
-TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Create_Complex_Number) {
+TEST(Yashin_Egor_ComplexNumberTest1, Can_Create_Complex_Number) {
     double re = 2.0;
     double im = 0.1;
 
@@ -15,7 +15,7 @@ TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Create_Complex_Number) {
     EXPECT_EQ(im, res.getIm());
 }
 
-TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Multiply_Complex_Numbers) {
+TEST(Yashin_Egor_ComplexNumberTest1, Can_Multiply_Complex_Numbers) {
     double re1 = 0.3;
     double im1 = 0.1;
 
@@ -30,7 +30,7 @@ TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Multiply_Complex_Numbers) {
     EXPECT_EQ(0.26, res.getIm());
 }
 
-TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Sum_Complex_Numbers) {
+TEST(Yashin_Egor_ComplexNumberTest1, Can_Sum_Complex_Numbers) {
     double re1 = 2.0;
     double im1 = 0.4;
 
@@ -47,7 +47,7 @@ TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Sum_Complex_Numbers) {
     EXPECT_EQ(0.8, res.getIm());
 }
 
-TEST(Silaeva_Natalya_ComplexNumberTest1, Can_Subtract_Complex_Numbers) {
+TEST(Yashin_Egor_ComplexNumberTest1, Can_Subtract_Complex_Numbers) {
     double re1 = 2.0;
     double im1 = 0.4;
 
