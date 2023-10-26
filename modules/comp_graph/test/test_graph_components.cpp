@@ -5,16 +5,16 @@
 #include"include/graph.h"
 
 
-TEST(Simeunovic_Aleksandar_Graph_Components, default_constructor_test) {
+TEST(Yashin_Egor_Graph_Components, default_constructor_test) {
     Graph g();
     ASSERT_NO_THROW();
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, zero_size_test) {
+TEST(Yashin_Egor_Graph_Components, zero_size_test) {
     EXPECT_ANY_THROW({ Graph g(0); });
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test1) {
+TEST(Yashin_Egor_Graph_Components, matrix_adjacency_test1) {
     bool** matrix;
     matrix = new bool* [3];
     for (int i = 0; i < 3; i++) {
@@ -29,7 +29,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test1) {
     ASSERT_NO_THROW();
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test2) {
+TEST(Yashin_Egor_Graph_Components, matrix_adjacency_test2) {
     bool** matrix;
     matrix = new bool* [3];
     for (int i = 0; i < 3; i++) {
@@ -50,7 +50,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test2) {
     }
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test3) {
+TEST(Yashin_Egor_Graph_Components, matrix_adjacency_test3) {
     std::random_device dev;
     std::mt19937 rand_r(dev());
     uint64_t num_of_nodes = rand_r() % 100+1;
@@ -77,7 +77,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test3) {
     }
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, unordered_map_constructor) {
+TEST(Yashin_Egor_Graph_Components, unordered_map_constructor) {
     std::unordered_map<int, std::list<int> > adjacency_map;
     adjacency_map[0]={1, 2};
     adjacency_map[1]={0};
@@ -85,17 +85,17 @@ TEST(Simeunovic_Aleksandar_Graph_Components, unordered_map_constructor) {
     EXPECT_NO_THROW();
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, adding_edge_out_of_range) {
+TEST(Yashin_Egor_Graph_Components, adding_edge_out_of_range) {
     Graph g(5);
     EXPECT_ANY_THROW({ g.Add_Edge(0, 5); });
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, delete_edge_out_of_range) {
+TEST(Yashin_Egor_Graph_Components, delete_edge_out_of_range) {
     Graph g(5);
     EXPECT_ANY_THROW({ g.Delete_Edge(0, 5); });
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, adding_edge) {
+TEST(Yashin_Egor_Graph_Components, adding_edge) {
     Graph g(5);  // There are no edges between any two pair of nodes
     EXPECT_EQ(false, g.Has_Edge(1, 3));
     g.Add_Edge(1, 3);
@@ -103,7 +103,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, adding_edge) {
     EXPECT_EQ(true, g.Has_Edge(3, 1));
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, deleting_edge) {
+TEST(Yashin_Egor_Graph_Components, deleting_edge) {
     Graph g(5);
     g.Add_Edge(1, 3);
     EXPECT_EQ(true, g.Has_Edge(1, 3));
@@ -112,7 +112,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, deleting_edge) {
     EXPECT_EQ(false, g.Has_Edge(3, 1));
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components1) {
+TEST(Yashin_Egor_Graph_Components, num_of_components1) {
     Graph g(5);
     g.Add_Edge(0, 1);
     g.Add_Edge(0, 2);
@@ -122,14 +122,14 @@ TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components1) {
     EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components2_no_edges) {
+TEST(Yashin_Egor_Graph_Components, num_of_components2_no_edges) {
     Graph g(5);
     // Expecting components:[0],[1],[2],[3],[4]
     uint64_t expected = 5;
     EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components3) {
+TEST(Yashin_Egor_Graph_Components, num_of_components3) {
     Graph g(10);
     g.Add_Edge(0, 1);
     g.Add_Edge(0, 2);
@@ -140,7 +140,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components3) {
     EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, one_with_all) {
+TEST(Yashin_Egor_Graph_Components, one_with_all) {
     std::random_device dev;
     std::mt19937 rand_r(dev());
     uint64_t num_of_nodes = rand_r() % 100 + 1;
@@ -152,7 +152,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, one_with_all) {
     EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
-TEST(Simeunovic_Aleksandar_Graph_Components, every_pair_is_connected) {
+TEST(Yashin_Egor_Graph_Components, every_pair_is_connected) {
     std::random_device dev;
     std::mt19937 rand_r(dev());
     uint64_t num_of_nodes = rand_r() % 100 + 1;
