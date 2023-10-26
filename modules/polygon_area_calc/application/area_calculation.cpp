@@ -1,4 +1,4 @@
-// Copyright 2023 Goncharova Anna
+// Copyright 2023 Yashin Egor
 
 #include <stdlib.h>
 #include <stdio.h>
