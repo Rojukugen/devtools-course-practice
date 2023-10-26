@@ -5,26 +5,51 @@
 #include "include/complex_number.h"
 
 
-TEST(Yashin_Egor_ComplexNumberTest, Can_Get_Im) {
-    double re = 2.0;
-    double im = 3.0;
-    ComplexNumber z(re, im);
-    EXPECT_DOUBLE_EQ(im, z.getIm());
+TEST(Yashin_Egor_Co1mplexNumberTest, Can_Multiply_Complex_Numbers) {
+    double re1 = 0.3;
+    double im1 = 0.1;
+
+    double re2 = 0.8;
+    double im2 = 0.6;
+
+    ComplexNumber cnum1(0.3, 0.1);
+    ComplexNumber cnum2(0.8, 0.6);
+    ComplexNumber res = cnum1 * cnum2;
+
+    EXPECT_EQ(0.18, res.getRe());
+    EXPECT_EQ(0.26, res.getIm());
 }
-TEST(Yashin_Egor_ComplexNumberTest, TEST_SUB) {
-    ComplexNumber a(123.0, 50.0),
-        b(30.0, 14.0),
-        expected(93.0, 36.0);
 
-    ComplexNumber result = a - b;
+TEST(Yashin_Egor_Co1mplexNumberTest, Can_Sum_Complex_Numbers) {
+    double re1 = 2.0;
+    double im1 = 0.4;
 
-    ASSERT_EQ(expected, result);
+    ComplexNumber cnum1(2.0, 0.4);
+
+    double re2 = 6.2;
+    double im2 = 0.4;
+
+    ComplexNumber cnum2(6.2, 0.4);
+
+    ComplexNumber res = cnum1 + cnum2;
+
+    EXPECT_EQ(8.2, res.getRe());
+    EXPECT_EQ(0.8, res.getIm());
 }
-TEST(Yashin_Egor_ComplexNumberTest, Sum_Conjugate) {
-    ComplexNumber num1(42, 24);
-    ComplexNumber num2(42, -24);
 
-    ComplexNumber num3(84, 0);
+TEST(Yashin_Egor_Co1mplexNumberTest, Can_Subtract_Complex_Numbers) {
+    double re1 = 2.0;
+    double im1 = 0.4;
 
-    ASSERT_EQ(num1 + num2, num3);
+    ComplexNumber cnum1(2.0, 0.4);
+
+    double re2 = 6.2;
+    double im2 = 0.4;
+
+    ComplexNumber cnum2(6.2, 0.4);
+
+    ComplexNumber res = cnum2 - cnum1;
+
+    EXPECT_EQ(4.2, res.getRe());
+    EXPECT_EQ(0.0, res.getIm());
 }
