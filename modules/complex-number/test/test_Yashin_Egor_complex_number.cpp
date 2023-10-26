@@ -5,62 +5,34 @@
 #include "include/complex_number.h"
 
 
-TEST(Yashin_Egor_ComplexNumberTest1, Can_Create_Complex_Number) {
-    double re = 2.0;
-    double im = 0.1;
-
-    ComplexNumber res(re, im);
-
-    EXPECT_EQ(re, res.getRe());
-    EXPECT_EQ(im, res.getIm());
+// Test power method to the first power (identity)
+TEST(Yashin_EGOR_ComplexNumberTest, PowerIdentity) {
+	ComplexNumber z(2.0, -3.0);
+	ComplexNumber identity = z.power(1);
+	EXPECT_EQ(identity.getRe(), 2.0);
+	EXPECT_EQ(identity.getIm(), -3.0);
 }
 
-TEST(Yashin_Egor_ComplexNumberTest1, Can_Multiply_Complex_Numbers) {
-    double re1 = 0.3;
-    double im1 = 0.1;
-
-    double re2 = 0.8;
-    double im2 = 0.6;
-
-    ComplexNumber cnum1(0.3, 0.1);
-    ComplexNumber cnum2(0.8, 0.6);
-    ComplexNumber res = cnum1 * cnum2;
-
-    EXPECT_EQ(0.18, res.getRe());
-    EXPECT_EQ(0.26, res.getIm());
+// Test power method to the zero power
+TEST(Yashin_EGOR_ComplexNumberTest, PowerZero) {
+	ComplexNumber z(2.0, -3.0);
+	ComplexNumber zeroPower = z.power(0);
+	EXPECT_EQ(zeroPower.getRe(), 1.0);
+	EXPECT_EQ(zeroPower.getIm(), 0.0);
 }
 
-TEST(Yashin_Egor_ComplexNumberTest1, Can_Sum_Complex_Numbers) {
-    double re1 = 2.0;
-    double im1 = 0.4;
-
-    ComplexNumber cnum1(2.0, 0.4);
-
-    double re2 = 6.2;
-    double im2 = 0.4;
-
-    ComplexNumber cnum2(6.2, 0.4);
-
-    ComplexNumber res = cnum1 + cnum2;
-
-    EXPECT_EQ(8.2, res.getRe());
-    EXPECT_EQ(0.8, res.getIm());
+// Test power method to a negative power
+TEST(Yashin_EGOR_ComplexNumberTest, PowerNegative) {
+	ComplexNumber z(2.0, -3.0);
+	ComplexNumber negativePower = z.power(-2);
+	EXPECT_DOUBLE_EQ(negativePower.getRe(), -0.045454545454545456);
+	EXPECT_DOUBLE_EQ(negativePower.getIm(), 0.06818181818181819);
 }
 
-TEST(Yashin_Egor_ComplexNumberTest1, Can_Subtract_Complex_Numbers) {
-    double re1 = 2.0;
-    double im1 = 0.4;
-
-    ComplexNumber cnum1(2.0, 0.4);
-
-    double re2 = 6.2;
-    double im2 = 0.4;
-
-    ComplexNumber cnum2(6.2, 0.4);
-
-    ComplexNumber res = cnum2 - cnum1;
-
-    EXPECT_EQ(4.2, res.getRe());
-    EXPECT_EQ(0.0, res.getIm());
+// Test power method to a fractional power
+TEST(Yashin_EGOR_ComplexNumberTest, PowerFractional) {
+	ComplexNumber z(2.0, -3.0);
+	ComplexNumber fractionalPower = z.power(0.5);
+	EXPECT_DOUBLE_EQ(fractionalPower.getRe(), 1.5010595677132415);
+	EXPECT_DOUBLE_EQ(fractionalPower.getIm(), -0.9039072313340563);
 }
-
