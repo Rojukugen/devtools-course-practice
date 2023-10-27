@@ -6,15 +6,15 @@
 #include <stack>
 #include <string>
 
-class CalcStringCalculator {
+class Calc_String_Calculator {
  private:
     std::string Calc_infix_, Calc_postfix_;
     std::stack<char> Calc_charStack_;
     std::stack<double> Calc_doubleStack_;
 
-    bool CalcCheck();
-    int CalcPriority(const char& el);
-    void CalcToPostfix();
+    bool Calc_Check();
+    int Calc_Priority(const char& el);
+    void Calc_To_Postfix();
 
  public:
     void set_Calc_infix(const std::string str);
@@ -23,7 +23,7 @@ class CalcStringCalculator {
     std::string get_Calc_infix();
     std::string get_Calc_postfix();
     int get_Calc_priority(const char& el);
-    double CalcCalculate();
+    double Calc_Calculate();
 };
 
 #endif  // MODULES_STRING_CALC_INCLUDE_STRING_CALCULATOR_H_
