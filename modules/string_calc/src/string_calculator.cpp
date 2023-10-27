@@ -102,39 +102,22 @@ bool CalcStringCalculator::CalcCheck() {
         }
         }
     }
-    if (Calc_charStack_.empty()) {
-        return true;
-    } else {
-        return false;
-    }
+    return Calc_charStack_.empty();  
 }
 
 int CalcStringCalculator::CalcPriority(const char& el) {
     switch (el) {
-    case '(':
-    {
-        return 0;
-    }
-    case '+':
-    {
-        return 1;
-    }
-    case '-':
-    {
-        return 1;
-    }
-    case '*':
-    {
-        return 2;
-    }
-    case '/':
-    {
-        return 2;
-    }
-    case '^':
-    {
-        return 3;
-    }
+    case '(': return 0;
+    
+    case '+': return 1;
+    
+    case '-': return 1;
+    
+    case '*': return 2;
+    
+    case '/': return 2;
+    
+    case '^': return 3;
     }
     return -1;
 }
