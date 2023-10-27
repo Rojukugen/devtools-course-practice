@@ -7,19 +7,19 @@
 #include <iostream>
 #include <string>
 
-void CalcStringCalculator::set_Calc_infix(const std::string str) {
+void Calc_String_Calculator::set_Calc_infix(const std::string str) {
     Calc_infix_ = str;
 }
 
-std::string CalcStringCalculator::get_Calc_infix() {
+std::string Calc_String_Calculator::get_Calc_infix() {
     return Calc_infix_;
 }
 
-std::string CalcStringCalculator::get_Calc_postfix() {
+std::string Calc_String_Calculator::get_Calc_postfix() {
     return Calc_postfix_;
 }
 
-bool CalcStringCalculator::CalcCheck() {
+bool Calc_String_Calculator::Calc_Check() {
     while (!Calc_charStack_.empty()) {
         Calc_charStack_.pop();
     }
@@ -109,7 +109,7 @@ bool CalcStringCalculator::CalcCheck() {
     }
 }
 
-int CalcStringCalculator::CalcPriority(const char& el) {
+int Calc_String_Calculator::Calc_Priority(const char& el) {
     switch (el) {
     case '(':
     {
@@ -139,12 +139,12 @@ int CalcStringCalculator::CalcPriority(const char& el) {
     return -1;
 }
 
-int CalcStringCalculator::get_Calc_priority(const char& el) {
-    return CalcPriority(el);
+int Calc_String_Calculator::get_Calc_priority(const char& el) {
+    return Calc_Priority(el);
 }
 
-void CalcStringCalculator::CalcToPostfix() {
-    if (CalcCheck()) {
+void Calc_String_Calculator::Calc_To_Postfix() {
+    if (Calc_Check()) {
         std::string tmp = '(' + Calc_infix_ + ')';
         int sizeOfTmp = static_cast<int>(tmp.size());
         for (int i = 0; i < sizeOfTmp; i++) {
@@ -166,8 +166,8 @@ void CalcStringCalculator::CalcToPostfix() {
             if ((tmp[i] == '+') || (tmp[i] == '-') || (tmp[i] == '*') ||
                 (tmp[i] == '/') || (tmp[i] == '^')) {
                 Calc_postfix_ += " ";
-                while (CalcPriority(tmp[i])
-                    <= CalcPriority(Calc_charStack_.top())) {
+                while (Calc_Priority(tmp[i])
+                    <= Calc_Priority(Calc_charStack_.top())) {
                     Calc_postfix_ += Calc_charStack_.top();
                     Calc_charStack_.pop();
                 }
@@ -179,11 +179,11 @@ void CalcStringCalculator::CalcToPostfix() {
     }
 }
 
-double CalcStringCalculator::CalcCalculate() {
+double Calc_String_Calculator::Calc_Calculate() {
     while (!Calc_doubleStack_.empty()) {
         Calc_doubleStack_.pop();
     }
-    CalcToPostfix();
+    Calc_To_Postfix();
     int sizeOfPostfix = static_cast<int>(Calc_postfix_.size());
     for (int i = 0; i < sizeOfPostfix; i++) {
         if (Calc_postfix_[i] == '+' || Calc_postfix_[i] == '-'
@@ -241,13 +241,13 @@ double CalcStringCalculator::CalcCalculate() {
     return Calc_doubleStack_.top();
 }
 
-void CalcStringCalculator::set_Calc_stacks(int n) {
+void Calc_String_Calculator::set_Calc_stacks(int n) {
     for (int i = 0; i < n; i++) {
         Calc_charStack_.push('+');
         Calc_doubleStack_.push(2.5);
     }
 }
 
-void CalcStringCalculator::set_Calc_postfix(const std::string str) {
+void Calc_String_Calculator::set_Calc_postfix(const std::string str) {
     Calc_postfix_ = str;
 }
