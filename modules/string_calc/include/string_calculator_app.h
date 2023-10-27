@@ -6,9 +6,9 @@
 #include <string>
 #include <stdexcept>
 
-class String_Calculator_App {
+class StringCalculatorApp {
  public:
-    String_Calculator_App();
+    StringCalculatorApp();
     std::string operator()(int argc, const char** argv);
 
  private:
